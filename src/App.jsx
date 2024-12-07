@@ -20,6 +20,8 @@ import api from '@/api'
 import cartReducer, { initialCartState } from '@/reducers/cartReducer'
 import useReducerWithLocalStorage from '@/hooks/useReducerWithLocalStorage'
 import UserLayout from './layouts/UserLayout'
+import About from './ui/About';
+import Buisness from './components/BuisnessEnq';
 
 export const UserContext = createContext()
 export const CartContext = createContext()
@@ -58,6 +60,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<UserLayout />}>
             <Route index element={<HomePage />} />
+            <Route path="/about" element={<About />} />
+           
+            
             <Route path="cart" element={<CartPage />} />
 
             <Route path="login" element={user ? <Navigate replace to="/" /> : <LoginPage />} />
@@ -73,6 +78,7 @@ export default function App() {
               <Route index element={user ? <OrdersPage /> : <Navigate replace to="/login" />} />
               <Route path=":id" element={user ? <OrderDetailsPage /> : <Navigate replace to="/login" />} />
             </Route>
+            <Route path="/buisness" element={<Buisness />} />
           </Route>
             
           <Route path="*" element={<NotFoundPage />} />
@@ -81,6 +87,8 @@ export default function App() {
           <Route path="/best" element={<BestSell />} />
           <Route path="/coord" element={<Coords/>} />
           <Route path="/western" element={<Western />} />
+        
+            
        
         </Routes>
           

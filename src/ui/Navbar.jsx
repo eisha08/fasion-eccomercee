@@ -10,10 +10,13 @@ import UserDropDown from '@/components/UserDropDown'
 import api from "@/api"
 import useClickOutside from '@/hooks/useClickOutside'
 
+
+  
+
 export default function Navbar() {
 	const {user, setUser} = useContext(UserContext)
 	const {cart, cartDispatch} = useContext(CartContext)
-	const [showMenu, setShowMenu] = useState(false)
+	const [showMenu, setShowMenu] = useState(false)   
 	const navbarRef = useClickOutside(() => setShowMenu(false))
 
 	return (
@@ -76,17 +79,19 @@ export default function Navbar() {
 					"mt-8 mb-2 text-xl space-y-1 divide-y-2 divide-gray-200",
 					"md:(flex-row text-base m-0 space-y-0 divide-y-0 divide-x)"
 				)} onClick={() => setShowMenu(false)}>
-					<NavLink to="/kurtas">Kurtas</NavLink>
-					<NavLink to="/coord">Co-Ords</NavLink>   
+					<NavLink to="/about">Our Story</NavLink>
+					<NavLink to="/kurtas">Accessories</NavLink>
+					<NavLink to="/coord">Inner & Sleepwear</NavLink>   
 					<NavLink to="/western">Western Wear</NavLink>
-					<NavLink to="/best">Best Seller</NavLink>
-					<NavLink to="/all">All in Clothing</NavLink>
+					<NavLink to="/best">Sports and ActiveWear</NavLink>
+					<NavLink to="/all">Ethnic Wear</NavLink>
+					<NavLink to="/best">Maternity</NavLink>
 				</ul>
 				<div className="flex items-center order-1 md:order-2">
 					<Input 
 						className="md:max-w-min bg-opacity-40" 
 						icon={<Search />} 
-						placeholder="Search..." 
+						placeholder="Search..."      
 					/>
 				</div>
 			{!user && (
